@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3, #fad0c4);
+    overflow: hidden;
+}
+
+/* Floating glossy box */
+#clickBox {
+    width: 260px;
+    height: 260px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 26px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    animation: floatBox 3s ease-in-out infinite;
+}
+
+@keyframes floatBox {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+#clickBox p {
+    font-size: 24px;
+    font-weight: 500;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+/* Message wrapper */
+#messageWrapper {
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    display: none;
+}
+
+/* TEXT ANIMATION */
+.fadeIn {
+    opacity: 0;
+    transform: translateY(15px) scale(0.9);
+    animation: fadeUp 0.9s ease forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Big headline */
+.bigText {
+    font-size: clamp(32px, 8vw, 52px);
+    color: white;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 3px 10px rgba(255,255,255,0.4);
+    animation-delay: 0.2s;
+}
+
+/* Name */
+.nameText {
+    font-size: clamp(22px, 5vw, 34px);
+    margin-top: 10px;
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 2px;
+    animation-delay: 0.45s;
+}
+
+/* Paragraphs */
+#messageWrapper p {
+    font-size: clamp(16px, 4vw, 22px);
+    color: white;
+    margin: 10px 0;
+    animation-delay: 0.6s;
+}
+
+/* Image Animation */
+#messageWrapper img {
+    margin-top: 15px;
+    border-radius: 20px;
+    width: clamp(120px, 40vw, 180px);
+    height: auto;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+    opacity: 0;
+    transform: scale(0.85);
+    animation: fadePic 1s ease forwards;
+    animation-delay: 0.75s;
+}
+
+@keyframes fadePic {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Mobile Optimized Spacing */
+@media (max-width: 480px) {
+    #messageWrapper {
+        transform: translateY(20px);
+    }
+    #clickBox {
+        width: 220px;
+        height: 220px;
+    }
+}
